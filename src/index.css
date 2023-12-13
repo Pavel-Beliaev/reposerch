@@ -1,1 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+    html {
+        font-family: "Rubik", sans-serif;
+        color: #414141;
+    }
+}
+
+@layer components {
+    .text-start {
+        @apply font-medium text-xl leading-[1.875rem]
+    }
+    .text-end {
+        @apply font-normal
+    }
+}
