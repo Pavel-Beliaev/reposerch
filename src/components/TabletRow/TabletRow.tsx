@@ -1,18 +1,21 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import TabletCell from "../TabletCell/TabletCell";
 
 type PropsType = {
-    row?: number
+    name?: string,
+    stars?: number,
+    date?: string,
+    link?: string
+    number?: string,
 }
-const TabletRow: FC<PropsType> = ({row}) => {
-
+const TabletRow: FC<PropsType> = ({number, name, date,link,stars}) => {
 
     return (
-        <div className='flex w-full gap-7 items-center justify-between'>
-            <TabletCell value={row ? `${row}.names` : 'Имя'}/>
-            <TabletCell value={'Звезды'}/>
-            <TabletCell value={'Дата коммита'}/>
-            <TabletCell value={'Ссылка'}/>
+        <div className='flex justify-between '>
+            <TabletCell value={`${number}.${name}` || '-'}/>
+            <TabletCell value={stars || '-'}/>
+            <TabletCell value={date || '-'}/>
+            <TabletCell value={link || '-'}/>
         </div>
     );
 };

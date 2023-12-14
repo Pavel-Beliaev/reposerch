@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 
 type PropsType = {
-    value: string
+    value: string | number
 }
 const TabletCell: FC<PropsType> = ({value}) => {
     return (
-        <div className='flex w-full'>
+        <div className='flex'>
             {value}
         </div>
     );

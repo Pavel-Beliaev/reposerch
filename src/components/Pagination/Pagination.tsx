@@ -1,22 +1,23 @@
 import React from 'react';
+import {useSelector} from "react-redux";
+import {selectRepo, setPage} from "../../store/repoSlice";
+import {useAppDispatch} from "../../store/store";
 
 const Pagination = () => {
-    const arr = Array.from(Array(10).keys())
+    const {totalCount} = useSelector(selectRepo);
+    const dispatch = useAppDispatch();
+    const totalPage = totalCount/10;
+
+
 
     return (
         <div className='flex gap-[0.313rem]'>
-            <button
-                className='flex justify-center items-center w-10 h-10 p-2 hover:text-primary'>{'<<'}</button>
-            <button className='flex justify-center items-center w-10 h-10 p-2 hover:text-primary'>{'<'}</button>
-            {arr.map((num) => (
-                <button className='flex justify-center items-center text-[#606060] w-10 h-10 p-2 hover:text-primary'
-                        key={num}>
+            {[1,2,3].map((num) => (
+                <button onClick={() => dispatch(setPage(num))}
+                        className='btn-pagination'>
                     {num}
                 </button>
             ))}
-            <button className='flex justify-center items-center w-10 h-10 p-2 hover:text-primary'>{'>'}</button>
-            <button
-                className='flex justify-center items-center w-10 h-10 p-2 hover:text-primary'>{'>>'}</button>
         </div>
     );
 };
