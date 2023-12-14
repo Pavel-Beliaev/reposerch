@@ -1,34 +1,39 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import axios from "axios";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from "./store";
 
-export const fetchPizzas = createAsyncThunk<any,any>(
-    'repositories/fetchRepoSearch',
-    async (params) => {
-        const {query} = params
-        const {data} = await axios.get<any>(
-            `https://api.github.com/search/repositories?q=${query}&per_page=10`
-        )
-        return data;
-    }
-)
+export interface CardSliceState {
+    avatar: string,
+    login: string,
+    stars: number,
+    lastUpdate: string,
+    language: string,
+    url: string,
+};
 
-interface RepoSliceState {
-    repositories: any,
-}
+const initialState: CardSliceState = {
+    avatar: '',
+    login: '',
+    stars: 0,
+    lastUpdate: '',
+    language: '',
+    url: '',
+};
 
-const initialState: RepoSliceState = {
-    repositories: {
-
-    },
-}
-
-export const repoSlice = createSlice({
-    name: 'repositories',
+export const cardSlice = createSlice({
+    name: 'card',
     initialState,
-    reducers: {},
-    extraReducers: (builder) => {}
-})
+    reducers: {
+        setCard(state, action: PayloadAction<CardSliceState>) {
+            state.avatar = action.payload.avatar
+            state.login = action.payload.login
+            state.stars = action.payload.stars
+            state.lastUpdate = action.payload.lastUpdate
+            state.language = action.payload.language
+            state.url = action.payload.url
+        },
+    },
+});
 
-export const {} = repoSlice.actions
-
-export default repoSlice.reducer
+export const {setCard} = cardSlice.actions;
+export const selectCard = (state: RootState) => state.card;
+export default cardSlice.reducer;

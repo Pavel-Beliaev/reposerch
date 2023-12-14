@@ -10,14 +10,20 @@ type FetchParamsType = {
 type FetchData = {
     items: RepositoriesDataType[],
     total_count: number,
-
-}
+};
 
 type RepositoriesDataType = {
     created_at: string,
     html_url: string,
     name: string,
     stargazers_count: number,
+    language: string,
+    updated_at: string,
+    owner: {
+        avatar_url: string,
+        html_url: string,
+        login: string,
+    },
 };
 
 export const fetchRepoSearch = createAsyncThunk<FetchData, FetchParamsType>(
@@ -42,7 +48,7 @@ const initialState: RepoSliceState = {
     repositories: [],
     totalCount: 0,
     status: "pending",
-    page: 1
+    page: 1,
 };
 
 export const repoSlice = createSlice({
@@ -50,7 +56,7 @@ export const repoSlice = createSlice({
     initialState,
     reducers: {
         setPage(state, action: PayloadAction<number>) {
-            state.page = action.payload
+            state.page = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -68,6 +74,6 @@ export const repoSlice = createSlice({
     },
 });
 
-export const {setPage} = repoSlice.actions
-export const selectRepo = (state: RootState) => state.repositories
-export default repoSlice.reducer
+export const {setPage} = repoSlice.actions;
+export const selectRepo = (state: RootState) => state.repositories;
+export default repoSlice.reducer;

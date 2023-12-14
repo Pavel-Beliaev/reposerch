@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch} from "react-redux";
 import repositories from './repoSlice';
+import card from './cardSLice';
 
 export const store = configureStore({
     reducer: {
         repositories,
+        card,
     },
 });
 

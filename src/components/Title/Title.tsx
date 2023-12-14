@@ -5,7 +5,7 @@ type PropsType = {
 }
 const Title: FC<PropsType> = ({children}) => {
     return (
-        <h1 className='font-bold text-[2rem] mb-9'>
+        <h1 className='font-bold text-[32px]'>
             {children}
         </h1>
     );
