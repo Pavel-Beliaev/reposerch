@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 const TabletBody = () => {
     const {repositories} = useSelector(selectRepo);
     const dispatch = useAppDispatch();
-    const createCard = ({avatar, login, stars, lastUpdate, language, url}: CardSliceState) => {
+    const createCard = ({avatar, login, stars, lastUpdate, language, url, name}: CardSliceState) => {
         dispatch(setCard({
             avatar,
             login,
@@ -18,6 +18,7 @@ const TabletBody = () => {
             lastUpdate,
             language,
             url,
+            name,
         }));
     };
 
@@ -33,6 +34,7 @@ const TabletBody = () => {
                           lastUpdate: dateNorm(data.updated_at),
                           language: data.language,
                           url: data.owner.html_url,
+                          name: data.name,
                       })}
                       className='grid grid-cols-[0.7fr_0.3fr_0.5fr_1fr] gap-2 hover:text-primary hover:cursor-pointer'>
                     <TabletCell value={`${idx + 1}.${data.name}` || '-'}/>

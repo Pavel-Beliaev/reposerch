@@ -8,6 +8,7 @@ export interface CardSliceState {
     lastUpdate: string,
     language: string,
     url: string,
+    name: string,
 };
 
 const initialState: CardSliceState = {
@@ -17,6 +18,7 @@ const initialState: CardSliceState = {
     lastUpdate: '',
     language: '',
     url: '',
+    name: 'Название репозитория',
 };
 
 export const cardSlice = createSlice({
@@ -30,6 +32,7 @@ export const cardSlice = createSlice({
             state.lastUpdate = action.payload.lastUpdate
             state.language = action.payload.language
             state.url = action.payload.url
+            state.name = action.payload.name
         },
     },
 });
