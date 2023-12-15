@@ -21,7 +21,7 @@
     .btn-pagination {
         @apply flex justify-center items-center min-w-[40px] h-10 p-2 hover:text-primary
     }
-    .btn-pagination-svg {
-        @apply flex justify-center items-center w-7 h-7 p-2 fill-[#414141]  hover:fill-primary
+    .btn-pagination-svg svg {
+        @apply flex justify-center items-center w-7 h-7 p-2 fill-[#414141]  hover:fill-primary cursor-pointer
     }
 }

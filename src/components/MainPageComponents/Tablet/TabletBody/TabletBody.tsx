@@ -36,7 +36,7 @@ const TabletBody = () => {
                       })}
                       className='grid grid-cols-[0.7fr_0.3fr_0.5fr_1fr] gap-2 hover:text-primary hover:cursor-pointer'>
                     <TabletCell value={`${idx + 1}.${data.name}` || '-'}/>
-                    <TabletCell value={data.stargazers_count || '-'}/>
+                    <TabletCell value={data.stargazers_count || '-'} star={true}/>
                     <TabletCell value={dateNorm(data.created_at) || '-'}/>
                     <TabletCell value={data.html_url || '-'}/>
                 </Link>

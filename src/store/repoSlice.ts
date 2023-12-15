@@ -10,6 +10,9 @@ type FetchParamsType = {
 type FetchData = {
     items: RepositoriesDataType[],
     total_count: number,
+    error: {
+        message: string
+    },
 };
 
 type RepositoriesDataType = {
@@ -42,6 +45,7 @@ interface RepoSliceState {
     totalCount: number,
     status: 'pending' | 'loading' | 'finish' | 'error',
     page: number,
+    error: string | undefined,
 }
 
 const initialState: RepoSliceState = {
@@ -49,6 +53,7 @@ const initialState: RepoSliceState = {
     totalCount: 0,
     status: "pending",
     page: 1,
+    error: ''
 };
 
 export const repoSlice = createSlice({
@@ -67,9 +72,11 @@ export const repoSlice = createSlice({
             state.status = 'finish';
             state.repositories = action.payload.items;
             state.totalCount = action.payload.total_count;
+            state.error = ''
         });
-        builder.addCase(fetchRepoSearch.rejected, (state) => {
+        builder.addCase(fetchRepoSearch.rejected, (state, action) => {
             state.status = 'error';
+            state.error = action.error.message
         });
     },
 });

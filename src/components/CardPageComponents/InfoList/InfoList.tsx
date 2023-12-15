@@ -22,9 +22,9 @@ const InfoList = () => {
 
     return (
         <div className='flex flex-col justify-between'>
-            {arrHead.map((title) => (
+            {arrHead.map((title, idx) => (
                 <HeadInfo title={`${title}: `} key={title}>
-                    <Info info={obj[title]}/>
+                    <Info info={obj[title]} idx={idx}/>
                 </HeadInfo>
             ))}
             {/*<HeadInfo title={'Звезды:'}>*/}
