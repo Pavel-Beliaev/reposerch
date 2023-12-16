@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import TabletCell from "../TabletCell/TabletCell";
 import {useSelector} from "react-redux";
 import {selectRepo} from "../../../../store/repoSlice";
@@ -8,7 +8,8 @@ import {CardSliceState, setCard} from "../../../../store/cardSLice";
 import {Link} from "react-router-dom";
 
 const TabletBody = () => {
-    const {repositories} = useSelector(selectRepo);
+    const [lastNumber, setLastNumber] = useState<number>(10)
+    const {repositories, page} = useSelector(selectRepo);
     const dispatch = useAppDispatch();
     const createCard = ({avatar, login, stars, lastUpdate, language, url, name}: CardSliceState) => {
         dispatch(setCard({
@@ -21,6 +22,16 @@ const TabletBody = () => {
             name,
         }));
     };
+
+    const numberList = useCallback((idx: number): number => {
+        let currentNumber = idx + 1;
+        return (page * lastNumber) - (10 - currentNumber);
+    },[]);
+
+    useEffect(() => {
+        setLastNumber(page * 10);
+    }, [page]);
+
 
     return (
         <>
@@ -37,7 +48,7 @@ const TabletBody = () => {
                           name: data.name,
                       })}
                       className='grid grid-cols-[0.7fr_0.3fr_0.5fr_1fr] gap-2 hover:text-primary hover:cursor-pointer'>
-                    <TabletCell value={`${idx + 1}.${data.name}` || '-'}/>
+                    <TabletCell value={`${numberList(idx)}.${data.name}` || '-'}/>
                     <TabletCell value={data.stargazers_count || '-'} star={true}/>
                     <TabletCell value={dateNorm(data.created_at) || '-'}/>
                     <TabletCell value={data.html_url || '-'}/>
