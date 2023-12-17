@@ -1,13 +1,12 @@
 import React from 'react';
-import ContentList from "../components/ContentList/ContentList";
-import ErrorElement from "../components/ErrorElement/ErrorElement";
+import {ContentList, ErrorElement} from "../components";
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
     return (
-        <ContentList>
-            <ErrorElement/>
-        </ContentList>
+        <div className='wrapper'>
+            <ContentList>
+                <ErrorElement/>
+            </ContentList>
+        </div>
     );
 };
-
-export default ErrorPage;

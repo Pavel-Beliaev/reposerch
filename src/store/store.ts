@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch} from "react-redux";
-import repositories from './repoSlice';
-import card from './cardSLice';
+import repositories from './repositories/slice';
+import card from './card/cardSLice';
 
 export const store = configureStore({
     reducer: {

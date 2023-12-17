@@ -7,6 +7,9 @@
         font-family: "Rubik", sans-serif;
         color: #414141;
     }
+    .wrapper {
+        @apply flex justify-center items-center w-screen h-screen
+    }
 }
 
 @layer components {
@@ -21,7 +24,10 @@
     .btn-pagination {
         @apply flex justify-center items-center min-w-[40px] h-10 p-2 hover:text-primary
     }
-    .btn-pagination-svg svg {
-        @apply flex justify-center items-center w-7 h-7 p-2 fill-[#414141]  hover:fill-primary cursor-pointer
+    .btn-back {
+        @apply flex items-center justify-center w-[110px] rounded p-2 gap-2 bg-[#F3F2F1]
+    }
+    .btn-error {
+        @apply flex items-center justify-center rounded text-2xl p-4 bg-[#D80000] text-[#F2F2F2]
     }
 }

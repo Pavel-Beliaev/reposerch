@@ -1,28 +1,34 @@
-import React from 'react';
-import Title from "../components/Title/Title";
-import ContentList from "../components/ContentList/ContentList";
-import Card from "../components/CardPageComponents/Card/Card";
-import BackButton from "../components/CardPageComponents/BackButton/BackButton";
+import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
-import {selectCard} from "../store/cardSLice";
+import {cardStateSlice} from "../store/card/cardSLice";
+import {BackButton, Card, ContentList, DetailInfo, PageWrapper, Title} from "../components";
+import {useAppDispatch} from "../store/store";
+import {fetchCard} from "../store/card/asyncActions";
+import {useLocation} from "react-router-dom";
 
-const CardPage = () => {
-    const {name} = useSelector(selectCard);
+export const CardPage = () => {
+    const dispatch = useAppDispatch();
+    const {card} = useSelector(cardStateSlice);
+    const {pathname} = useLocation();
+    const [owner, repo] = pathname.split(/[/_]/).slice(2);
+
+    useEffect(() => {
+        dispatch(fetchCard({
+            owner: owner,
+            repo: repo,
+        }));
+    }, [pathname]);
 
     return (
-        <div className='page'>
-            <div className='w-full flex justify-center items-center relative'>
+        <PageWrapper>
+            <div className='w-full grid grid-cols-[15%_1fr_15%] justify-items-center'>
                 <BackButton/>
-                <Title>
-                    {name}
-                </Title>
+                <Title title={card.name}/>
             </div>
-            <h2 className='text-2xl'>Детальная информация</h2>
+            <DetailInfo title={'Детальная информация'}/>
             <ContentList>
                 <Card/>
             </ContentList>
-        </div>
+        </PageWrapper>
     );
 };
-
-export default CardPage;
