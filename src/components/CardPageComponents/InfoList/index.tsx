@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { cardStateSlice } from '../../../store/card/cardSLice';
 import { Info } from '../Info';
 import { parseDate } from '../../utils/parseDate';
+import { cardStateSlice } from 'store';
 
 type ObjType = {
   [key: string]: string | number;

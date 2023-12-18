@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { repositoriesStateSLice } from '../../../store/repositories/slice';
+import { repositoriesStateSLice } from 'store';
 
 export const TotalCountElement: FC = () => {
   const { totalCount } = useSelector(repositoriesStateSLice);

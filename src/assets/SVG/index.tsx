@@ -5,5 +5,5 @@ import { DoubleArrow } from './DoubleArrow';
 export const SVG = {
   Star,
   Arrow,
-  DoubleArrow: DoubleArrow,
+  DoubleArrow,
 };

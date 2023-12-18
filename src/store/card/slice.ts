@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { fetchCard } from './asyncActions';
 import { CardSliceState } from './types';
+import { fetchCard } from './asyncActions';
+import { RootState } from '../store';
 
 const initialState: CardSliceState = {
   card: {
@@ -22,20 +22,21 @@ export const cardSlice = createSlice({
   name: 'card',
   initialState,
   reducers: {},
-  extraReducers: builder => {
-    builder.addCase(fetchCard.pending, state => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchCard.pending, (state) => {
       state.status = 'loading';
     });
     builder.addCase(fetchCard.fulfilled, (state, action) => {
       state.status = 'finish';
       state.card = action.payload;
     });
-    builder.addCase(fetchCard.rejected, (state, action) => {
+    builder.addCase(fetchCard.rejected, (state) => {
       state.status = 'error';
     });
   },
 });
 
+// eslint-disable-next-line no-empty-pattern
 export const {} = cardSlice.actions;
 export const cardStateSlice = (state: RootState) => state.card;
 export default cardSlice.reducer;

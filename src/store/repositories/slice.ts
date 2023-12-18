@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import { fetchRepoSearch } from './asyncActions';
 import { RepoSliceState } from './types';
+import { RootState } from '../store';
 
 const initialState: RepoSliceState = {
   repositories: [],

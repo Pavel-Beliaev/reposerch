@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { cardStateSlice } from '../../../store/card/cardSLice';
+import { cardStateSlice } from 'store';
 
 export const Avatar: FC = () => {
   const { card } = useSelector(cardStateSlice);

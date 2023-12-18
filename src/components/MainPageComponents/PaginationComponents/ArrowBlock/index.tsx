@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { ArrowsButton } from '../ArrowsButton';
 import { SVG } from '../../../../assets/SVG';
-import { repositoriesStateSLice } from '../../../../store/repositories/slice';
 import { useSelector } from 'react-redux';
+import { repositoriesStateSLice } from 'store';
 
 type PropsType = {
   totalPage: number;

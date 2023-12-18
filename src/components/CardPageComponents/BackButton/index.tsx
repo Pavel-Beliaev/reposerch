@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SVG } from '../../../assets/SVG';
-import { CustomButton } from '../../CustomButton/CustomButton';
+import { CustomButton } from '../../CustomButton';
 
 export const BackButton: FC = () => {
   const navigate = useNavigate();

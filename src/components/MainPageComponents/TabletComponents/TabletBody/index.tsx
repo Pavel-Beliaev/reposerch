@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { parseDate } from '../../../utils/parseDate';
 import { Link } from 'react-router-dom';
-import { repositoriesStateSLice } from '../../../../store/repositories/slice';
+import { parseDate } from '../../../utils/parseDate';
 import { TabletCell } from '../TabletCell';
+import { repositoriesStateSLice } from 'store';
 
 export const TabletBody: FC = () => {
   const [lastNumber, setLastNumber] = useState<number>(10);

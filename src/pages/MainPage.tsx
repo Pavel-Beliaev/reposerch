@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
-import { useAppDispatch } from '../store/store';
 import { useSelector } from 'react-redux';
-import { useDebounce } from '../components/hooks/useDebounce';
 import { useSearchParams } from 'react-router-dom';
-import { fetchRepoSearch } from '../store/repositories/asyncActions';
+import { useDebounce } from '../components/hooks/useDebounce';
 import {
   ContentList,
   Loader,
@@ -14,8 +12,13 @@ import {
   Tablet,
   Title,
   TotalCountElement,
-} from '../components';
-import { repositoriesStateSLice, setPage } from '../store/repositories/slice';
+} from 'components';
+import {
+  fetchRepoSearch,
+  repositoriesStateSLice,
+  setPage,
+  useAppDispatch,
+} from 'store';
 
 export const MainPage = () => {
   const { page, status, repositories } = useSelector(repositoriesStateSLice);
@@ -31,9 +34,11 @@ export const MainPage = () => {
   const setQueryHandler = useCallback((value: string) => {
     setSearch({ search: value });
     dispatch(setPage(1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderContent = () => {
+    // eslint-disable-next-line react/jsx-no-undef
     return !!repositories && isNotError ? <Tablet /> : <NotFound />;
   };
   useEffect(() => {
@@ -48,6 +53,7 @@ export const MainPage = () => {
   }, [debouncedSearch, page]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-undef
     <PageWrapper>
       <Title title={'Поиск репозиториев Github'} />
       <Search value={searchValue!} setValue={setQueryHandler} />

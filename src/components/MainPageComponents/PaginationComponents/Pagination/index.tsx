@@ -1,12 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../../../store/store';
-import {
-  repositoriesStateSLice,
-  setPage,
-} from '../../../../store/repositories/slice';
 import { DOTS, usePagination } from '../../../hooks/usePagination';
 import { ArrowBlock } from '../ArrowBlock';
+import { repositoriesStateSLice, setPage, useAppDispatch } from 'store';
 
 export const Pagination: FC = () => {
   const { totalCount, page } = useSelector(repositoriesStateSLice);

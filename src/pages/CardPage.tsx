@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { cardStateSlice } from '../store/card/cardSLice';
+import { useLocation } from 'react-router-dom';
+import { cardStateSlice, fetchCard, useAppDispatch } from 'store';
 import {
   BackButton,
   Card,
@@ -9,10 +10,7 @@ import {
   Loader,
   PageWrapper,
   Title,
-} from '../components';
-import { useAppDispatch } from '../store/store';
-import { fetchCard } from '../store/card/asyncActions';
-import { useLocation } from 'react-router-dom';
+} from 'components';
 
 export const CardPage = () => {
   const dispatch = useAppDispatch();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentList, ErrorElement } from '../components';
+import { ContentList, ErrorElement } from 'components';
 
 export const ErrorPage = () => {
   return (
