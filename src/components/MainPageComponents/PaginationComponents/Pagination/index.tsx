@@ -23,15 +23,22 @@ export const Pagination: FC = () => {
 
   const prevPage = useCallback(() => {
     dispatch(setPage(page - 1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
   const severalPrevPages = useCallback(() => {
     dispatch(setPage(page - 9));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
   const nextPage = useCallback(() => {
     dispatch(setPage(page + 1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
   const severalNextPage = useCallback(() => {
     dispatch(setPage(page + 9));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (

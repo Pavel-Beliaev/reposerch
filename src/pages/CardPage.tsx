@@ -28,6 +28,7 @@ export const CardPage = () => {
         repo: repo,
       }),
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (

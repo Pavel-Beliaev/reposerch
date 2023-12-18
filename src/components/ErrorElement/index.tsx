@@ -12,7 +12,7 @@ export const ErrorElement: FC = () => {
     <div className='flex flex-col grow justify-center items-center gap-3.5'>
       <p className='font-bold text-[40px]'>Упс... Ошибка...</p>
       <CustomButton
-        style={'error'}
+        myStyle={'error'}
         text={'На главную'}
         onClick={returnHandler}
       />

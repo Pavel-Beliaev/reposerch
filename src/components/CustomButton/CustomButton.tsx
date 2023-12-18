@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 
 type PropsType = {
-  style: 'back' | 'error';
+  myStyle: 'back' | 'error';
   text: string;
   onClick: () => void;
   children?: ReactNode;
@@ -10,7 +10,7 @@ type ObjType = {
   [key: string]: string;
 };
 export const CustomButton: FC<PropsType> = ({
-  style,
+  myStyle,
   text,
   onClick,
   children,
@@ -21,7 +21,7 @@ export const CustomButton: FC<PropsType> = ({
   };
 
   return (
-    <button onClick={onClick} className={styles[style]}>
+    <button onClick={onClick} className={styles[myStyle]}>
       {children}
       {text}
     </button>

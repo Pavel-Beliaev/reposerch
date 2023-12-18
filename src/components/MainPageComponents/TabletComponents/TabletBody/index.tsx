@@ -12,6 +12,7 @@ export const TabletBody: FC = () => {
   const numberList = useCallback((idx: number): number => {
     let currentNumber = idx + 1;
     return page * lastNumber - (10 - currentNumber);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

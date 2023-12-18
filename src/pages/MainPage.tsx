@@ -44,6 +44,7 @@ export const MainPage = () => {
         page: String(page),
       }),
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, page]);
 
   return (
