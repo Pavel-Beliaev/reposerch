@@ -1,9 +1,9 @@
-import {Star} from "./Star";
-import {Arrow} from "./Arrow";
-import {DoubleArrow} from "./DoubleArrow";
+import { Star } from './Star';
+import { Arrow } from './Arrow';
+import { DoubleArrow } from './DoubleArrow';
 
 export const SVG = {
-    Star,
-    Arrow,
-    DubleArrow: DoubleArrow,
+  Star,
+  Arrow,
+  DoubleArrow: DoubleArrow,
 };

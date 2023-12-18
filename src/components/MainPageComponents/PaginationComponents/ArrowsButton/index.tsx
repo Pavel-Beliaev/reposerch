@@ -1,20 +1,20 @@
-import React, {FC, ReactNode} from 'react';
+import React, { FC, ReactNode } from 'react';
 
 type PropsType = {
-    children: ReactNode,
-    onClick: () => void,
-    isAble: boolean,
+  children: ReactNode;
+  onClick: () => void;
+  isAble: boolean;
 };
-export const ArrowsButton: FC<PropsType> = ({children, onClick, isAble}) => {
+export const ArrowsButton: FC<PropsType> = ({ children, onClick, isAble }) => {
+  const onClickHandle = () => {
+    onClick();
+  };
 
-    const onClickHandle = () => {
-        onClick();
-    }
-
-    return (
-        <button onClick={onClickHandle}
-                className={`btn-pagination ${isAble ? 'pointer-events-none' : ''}`}>
-            {children}
-        </button>
-    );
+  return (
+    <button
+      onClick={onClickHandle}
+      className={`btn-pagination ${isAble ? 'pointer-events-none' : ''}`}>
+      {children}
+    </button>
+  );
 };

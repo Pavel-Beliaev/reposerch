@@ -1,14 +1,14 @@
-import React, {FC} from 'react';
-import {TabletHeader} from "../TabletHeader";
-import {TabletBody} from "../TabletBody";
+import React, { FC } from 'react';
+import { TabletHeader } from '../TabletHeader';
+import { TabletBody } from '../TabletBody';
 
 export const Tablet: FC = () => {
-    return (
-        <div className='flex flex-col gap-3.5 p-5'>
-            <TabletHeader/>
-            <TabletBody/>
-        </div>
-    );
+  return (
+    <div className='flex flex-col gap-3.5 p-5'>
+      <TabletHeader />
+      <TabletBody />
+    </div>
+  );
 };
 
 // <table className='w-full border-separate border-spacing-3 '>

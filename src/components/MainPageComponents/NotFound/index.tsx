@@ -1,17 +1,17 @@
-import React, {FC} from 'react';
-import {useSelector} from "react-redux";
-import {repositoriesStateSLice} from "../../../store/repositories/slice";
+import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { repositoriesStateSLice } from '../../../store/repositories/slice';
 
 export const NotFound: FC = () => {
-    const {status} = useSelector(repositoriesStateSLice);
-    const isError = status === 'error';
-    const textError = isError ? 'Слишком много запросов...подождите минуту...' : 'Ничего не найдено ((';
+  const { status } = useSelector(repositoriesStateSLice);
+  const isError = status === 'error';
+  const textError = isError
+    ? 'Слишком много запросов...подождите минуту...'
+    : 'Ничего не найдено ((';
 
-    return (
-        <div className='flex grow self-center justify-center'>
-            <p className='font-bold text-2xl'>
-                {textError}
-            </p>
-        </div>
-    );
+  return (
+    <div className='flex grow self-center justify-center'>
+      <p className='font-bold text-2xl'>{textError}</p>
+    </div>
+  );
 };
